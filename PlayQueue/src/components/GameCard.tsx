@@ -1,29 +1,33 @@
 'use client'
-//import  Card   from '@mui/material/Card';
-//import CardContent from '@mui/material/CardContent';
-import {Card, CardContent, CardActions,  CardMedia, Typography, Button, CardActionArea } from '@mui/material';
 
+import {Card, CardContent, CardActions,  CardMedia, Typography, Button, CardActionArea, Rating, Chip } from '@mui/material';
+import Game from '../types';
 
+interface gameCardProps {
+  game: Game 
+}
 
-function GameCard() {
+function GameCard( {game} :gameCardProps) {
+  
   return (
     <div>
-      GameCard
+      
       <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
       <CardMedia
         component="img"
-        alt="God of War"
+        alt={game.name} 
         height="140"
-        src="PlayQueue\src\assets\GoW_Poster.jpg"
+        src= {game.backgroundImg}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          God of War 2018
+          {game.name}
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          God of War is a fictional story mode game based on the Greek mythological figure Kratos. In this installment of the series Kratos goes on an adventure with a special guest
-        </Typography>
+        <Rating value={game.rating} readOnly />
+        
+        
+        
       </CardContent>
       </CardActionArea>
       <CardActions>
