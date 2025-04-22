@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import Game from "../types"
+import { Game } from "../types"
 import GameCard from "./GameCard"
 import gameService from "../api/gameService";
+import { Box, CircularProgress, Grid, Typography } from "@mui/material";
 
 
 
@@ -31,9 +32,17 @@ function GameList() {
     <div style={{margin:"10px", display:"flex", flexDirection:"row", flexWrap:"wrap", gap:"16px"}}>
         
       {loading ? (
-        <p>Loading games...</p>
+        <div style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', margin:'auto'}}>
+          <Typography variant="h5" >Loading Games.... </Typography>
+          <CircularProgress /> 
+        </div>
       ) : (
-        games.map(game => <GameCard key={game.id} game={game} />)
+        <Box sx={{ p: 2, width: '100%', maxWidth: 1400, mx: 'auto',  }}>
+          <Grid container spacing={3} justifyContent={"center"}>
+            {games.map(game => <GameCard key={game.id} game={game} />)}
+          </Grid>
+        </Box>
+        
       )}
     
     </div>
