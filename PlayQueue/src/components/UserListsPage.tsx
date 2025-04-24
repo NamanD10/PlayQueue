@@ -10,7 +10,7 @@ function UserListsPage() {
     const games = getUserLists();
     const list : GameInStorage[] = games[value];
 
-    const handleChange = (event : React.SyntheticEvent, newValue: keyof UserLists)  => {
+    const handleChange = (_event : React.SyntheticEvent, newValue: keyof UserLists)  => {
       setValue(newValue);
     }
   
@@ -29,9 +29,19 @@ function UserListsPage() {
     }
     
     return (
-    <>
+      <Box
+      sx={{
+        height: '100vh',
+        width: '100vw',
+        display: 'flex',
+        justifyContent: 'start',
+        alignItems: 'start',
+        flexDirection: 'column',
+        p: 2,
+      }}
+    >
         <div>
-          <Typography variant="h2">User Lists </Typography>
+          <Typography variant="h4" gutterBottom color="text.primary" >User Lists </Typography>
         </div>
         
         <Tabs value={value} onChange={handleChange}> 
@@ -40,13 +50,13 @@ function UserListsPage() {
           <Tab value={'Wishlist'} label={'Wishlist'}></Tab>
         </Tabs>
 
-      <Paper elevation={3} sx={{ p: 3, mt: 2, widht:'500' }}>
+      <Paper elevation={3} sx={{ p: 3, mt: 2, widht:'500', height:'100vh', width:'100vw' }}>
       <Typography variant="h5" gutterBottom>
         {value} Games
       </Typography>   
       <SingularList list={list} />
       </Paper>          
-    </>    
+    </Box>    
 
   )
 }

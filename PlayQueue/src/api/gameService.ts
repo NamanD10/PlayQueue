@@ -25,8 +25,8 @@ const mapToDetail = (apiGame: any) :GameDetails => {
     rating: apiGame.rating,
     website: apiGame.website,
     requirements : {
-      minimum : apiGame.platforms?.find((item:any) => {item.platform.name==='PC'||item.platform.name==='pc'})?.requirements.minimum,
-      recommended : apiGame.platforms?.find((item:any) => {item.platform.name==='PC'||item.platform.name==='pc'})?.requirements.recommended,
+      minimum : apiGame.platforms?.find((item:any) => item.platform.name==='PC'||item.platform.name==='pc')?.requirements.minimum,
+      recommended : apiGame.platforms?.find((item:any) => item.platform.name==='PC'||item.platform.name==='pc')?.requirements.recommended,
     }
   };
 }
@@ -42,19 +42,32 @@ const client = axios.create({
 const gameService = {
   getGames : async(): Promise<Game[]> => {
     try{
-      const response:any = await client.get("/games", {});
+      const response:any = await client.get("/games?page_size=50", {});
       const games: Game[] = response.data.results.map(mapToGame);
       return games;
     }
     catch(error){
       console.error("error while fetching games: ", error);
-      return []
+      return [];
+    }
+  },
+
+  searchGame: async(search: string) : Promise<Game[]> => {
+    try{ 
+      const response : any = await client.get(`/games?search='${search}'`);
+      const games: Game[] = response.data.results.map(mapToGame);
+      return games;
+    }
+    catch(error){
+      console.error(`Error while searching for ${search}`, error);
+      return [];
     }
   },
 
   getDetails: async(gameId:string | undefined) :Promise<GameDetails | undefined> => {
     try{
       const response:any = await client.get(`/games/${gameId}`);
+      console.log(response);
       const details : GameDetails = mapToDetail(response.data);
       return details;
     } catch (error) {

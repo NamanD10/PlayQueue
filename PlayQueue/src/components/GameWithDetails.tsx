@@ -1,5 +1,5 @@
 import { 
-  Box, Container, Typography, Rating, CircularProgress, Divider, Paper, Grid, Card,CardMedia,CardContent, Link, List,ListItem,ListItemText
+  Box, Container, Typography, Rating, CircularProgress, Divider, Paper, Grid, Card,CardContent, Link, List,ListItem,ListItemText
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -19,6 +19,7 @@ function GameWithDetails() {
       try {
         setLoading(true);
         const fetchedDetails = await gameService.getDetails(id);
+        console.log(fetchedDetails?.requirements);
         setGame(fetchedDetails);
       } finally {
         setLoading(false);
@@ -92,7 +93,7 @@ function GameWithDetails() {
       <Box sx={{ p: 4 }}>
         <Grid container spacing={4}>
           {/* Left Side - Main Details */}
-          <Grid item xs={12} md={8}>
+          <Grid size={{ xs: 12, md: 8 }}>
             <Box mb={3}>
               <Typography variant="h5" gutterBottom>
                 About
@@ -109,43 +110,44 @@ function GameWithDetails() {
               </Typography>
               
               {/*ISSUE:  We aren't able to get the system requirements for any game. FIX THAT */}
-              {game.requirements.minimum || game.requirements.recommended ? (
-                <Grid container spacing={2}>
-                  {game.requirements.minimum && (
-                    <Grid item xs={12} md={6}>
-                      <Card variant="outlined">
-                        <CardContent>
-                          <Typography variant="h6" gutterBottom color="primary">
-                            Minimum
-                          </Typography>
-                          <Typography variant="body2" component="div" dangerouslySetInnerHTML={{ __html: game.requirements.minimum }} />
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  )}
-                  {game.requirements.recommended && (
-                    <Grid item xs={12} md={6}>
-                      <Card variant="outlined">
-                        <CardContent>
-                          <Typography variant="h6" gutterBottom color="primary">
-                            Recommended
-                          </Typography>
-                          <Typography variant="body2" component="div" dangerouslySetInnerHTML={{ __html: game.requirements.recommended }} />
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  )}
-                </Grid>
-              ) : (
-                <Typography variant="body1">
-                  No system requirements available for this game.
-                </Typography>
-              )}
+              {game.requirements ? (
+                  <Grid container spacing={2}>
+                    {game.requirements.minimum && (
+                      <Grid size={{ xs: 12, md: 6 }}>
+                        <Card variant="outlined">
+                          <CardContent>
+                            <Typography variant="h6" gutterBottom color="primary">
+                              Minimum
+                            </Typography>
+                            <Typography variant="body2" component="div" dangerouslySetInnerHTML={{ __html: game.requirements.minimum }} />
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    )}
+                    {game.requirements.recommended && (
+                      <Grid size={{ xs: 12, md: 6 }}>
+                        <Card variant="outlined">
+                          <CardContent>
+                            <Typography variant="h6" gutterBottom color="primary">
+                              Recommended
+                            </Typography>
+                            <Typography variant="body2" component="div" dangerouslySetInnerHTML={{ __html: game.requirements.recommended }} />
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    )}
+                  </Grid>
+                ) : (
+                  <Typography variant="body1" color="text-primary">
+                    No system requirements available for this game.
+                  </Typography>
+                )}
             </Box>
           </Grid>
 
           {/* Right Side - Additional Info */}
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
+            
             <Paper variant="outlined" sx={{ p: 3, mb: 3 }}>
               <List disablePadding>
                 <ListItem disablePadding sx={{ pb: 2 }}>

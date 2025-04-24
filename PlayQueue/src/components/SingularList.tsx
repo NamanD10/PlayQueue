@@ -1,6 +1,6 @@
-import { Box, List, ListItem, ListItemButton, ListItemText } from "@mui/material"
-import { Navigate, useNavigate } from "react-router-dom";
-import { GameInStorage, UserLists } from "../types"
+import { Box, List, ListItemButton, ListItemText } from "@mui/material"
+import { useNavigate } from "react-router-dom";
+import { GameInStorage } from "../types"
 
  
 function SingularList( {list} : { list: GameInStorage[]} ) {
@@ -11,7 +11,7 @@ function SingularList( {list} : { list: GameInStorage[]} ) {
    
      
   return (
-    <>
+    <Box>
     <List>
     {list.map((game) => (
           <ListItemButton key={game.id} onClick={() => handleClick(game.id)}>
@@ -21,7 +21,7 @@ function SingularList( {list} : { list: GameInStorage[]} ) {
     }
         
     </List>
-    </>
+    </Box>
   )
 
 }

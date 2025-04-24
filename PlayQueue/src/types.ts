@@ -8,6 +8,11 @@ interface Game {
 
 }
 
+interface SystemRequirements {
+    minimum: string,
+    recommended: string
+}
+
 interface GameDetails {
     id:number,
     name:string,
@@ -16,10 +21,7 @@ interface GameDetails {
     released: Date,
     rating:number,
     website?: string,
-    requirements?: {
-        minimum: string,
-        recommended: string
-    },
+    requirements?: SystemRequirements,
 
 }
 

@@ -1,6 +1,6 @@
 'use client'
 
-import {Card, CardContent, CardActions,  CardMedia, Typography, Button, CardActionArea, Rating, Chip, Menu, MenuItem, Snackbar, Alert } from '@mui/material';
+import {Card, CardContent, CardActions,  CardMedia, Typography, Button, CardActionArea, Rating, Menu, MenuItem, Snackbar, Alert } from '@mui/material';
 import { Game, GameInStorage, UserLists } from '../types';
 import { useNavigate } from 'react-router-dom';
 import { addToList } from '../utils/localStorage';
