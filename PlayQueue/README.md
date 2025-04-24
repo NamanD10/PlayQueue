@@ -1,54 +1,67 @@
-# React + TypeScript + Vite
+🎮 PLAYQUEUE
+PlayQueue is a gamer-centric web app built with React where users can:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔍 Search for their favorite games
 
-Currently, two official plugins are available:
+📋 Maintain lists like Played, Playing, and Wishlist
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧠 View detailed info about each game
 
-## Expanding the ESLint configuration
+💾 Save their lists using browser's localStorage (no signup/login required!)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✨ Features
+  🎯 Browse and explore game titles using the RAWG Video Games Database API
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  🔍 Real-time game search with debouncing
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+  🗂️ Organize games into three customizable lists
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  💡 Clean and responsive UI using MUI
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+  ⚡ Instant navigation between game details and lists
+
+  🔒 Works without any backend or database
+
+🔧 Tech Stack
+  Frontend: React + TypeScript
+
+  Styling: Material UI (MUI)
+
+  Routing: React Router
+
+  API: RAWG API
+
+🕹️ Live Demo
+Coming soon! (Or add your Vercel/Netlify link here)
+
+🧪 Running the App Locally
+  git clone https://github.com/your-username/playqueue.git
+  cd playqueue
+  npm install
+  npm run dev
+
+  You'll need a RAWG API key. Create a .env file and add:
+  VITE_RAWG_API_KEY=your_api_key_here
+
+
+📁 Folder Structure
+  src/
+  ├── components/        # Reusable UI components
+  ├── pages/             # Pages for each route (Home, Search, Lists)
+  ├── types/             # TypeScript types and interfaces
+  ├── utils/             # Utility functions like localStorage logic
+  ├── App.tsx            # Main app component with routing
+
+📌 Future Improvements
+  🔒 Add user authentication
+
+  ☁️ Store user data persistently with a backend & DB
+
+  🎨 Polish UI for a smoother experience
+
+
+🙌 Acknowledgements
+  RAWG API – Game data
+
+  Material UI – UI framework
+
