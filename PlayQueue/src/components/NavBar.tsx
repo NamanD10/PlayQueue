@@ -4,8 +4,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 import debounce from 'lodash.debounce';
-import neonTheme from "../theme";
-
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
