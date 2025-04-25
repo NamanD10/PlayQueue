@@ -32,7 +32,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: '#ff2e63',
   width: '100%',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
@@ -88,14 +88,14 @@ function NavBar() {
           sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, mx:'12px' }}
           
         > 
-        <a href="/" color={neonTheme.palette.primary.main}> 
+        <a href="/"> 
           PlayQueue
         </a>
         </Typography>
         
-        <Search >
+        <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon sx={{color:'#ff2e63'}}/>
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"

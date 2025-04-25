@@ -24,7 +24,7 @@ function SearchPage() {
     
     if(!searchResults){
       return (<div>
-        <Typography variant="h2">Can not find what you were looking for</Typography>
+        <Typography variant="h4">Search the game you want to add</Typography>
       </div>)
     }
 
