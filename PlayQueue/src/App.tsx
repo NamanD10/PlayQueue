@@ -5,11 +5,14 @@ import GameWithDetails from './components/GameWithDetails'
 import NavBar from './components/NavBar'
 import UserListsPage from './components/UserListsPage'
 import SearchPage from './components/SearchPage'
+import { ThemeProvider } from '@mui/material'
+import neonTheme from './theme'
 
 function App() {
 
   return (
     <>
+    <ThemeProvider theme={neonTheme}>
     <BrowserRouter>
       <NavBar />
       <Routes>
@@ -19,7 +22,7 @@ function App() {
         <Route path='/search' element={<SearchPage/>}> </Route>
       </Routes>
     </BrowserRouter>
-      
+    </ThemeProvider>  
     </>
   )
 }

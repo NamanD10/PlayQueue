@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 import debounce from 'lodash.debounce';
+import neonTheme from "../theme";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -87,7 +88,7 @@ function NavBar() {
           sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, mx:'12px' }}
           
         > 
-        <a href="/"> 
+        <a href="/" color={neonTheme.palette.primary.main}> 
           PlayQueue
         </a>
         </Typography>
