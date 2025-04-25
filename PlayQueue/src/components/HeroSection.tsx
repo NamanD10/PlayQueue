@@ -2,7 +2,7 @@ import { Box, Typography, Button, Container } from '@mui/material';
 import { styled } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 
-const GradientText = styled(Typography)(({ theme }) => ({
+const GradientText = styled(Typography)(({ }) => ({
   background: 'linear-gradient(90deg, #00adb5 0%, #ff2e63 100%)',
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
